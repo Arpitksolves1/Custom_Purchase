@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_wiz" model="ir.ui.view">
+        <field name="name">product.wiz</field>
+        <field name="model">product.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="custom_product_id"/>
+                </group>
+            </form>
+        </field>
+
+    </record>
+
+    <record id="action_product_wizard" model="ir.actions.act_window">
+        <field name="name">Choose product</field>
+        <field name="res_model">product.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="product_wiz"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

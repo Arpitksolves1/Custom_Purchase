@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="custom_root" name="Custom Purchase"/>
+
+    <menuitem id="purchase_menu" name="Request for Quotation" parent="custom_root" action="purchase.purchase_rfq"/>
+<!--    <menuitem id="custom_purchase" name="Custom Purchase order" parent="purchase_menu" />-->
+
+</odoo>
