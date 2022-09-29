@@ -1,1 +1,1 @@
-from . import create_wizard
+from . import product_wizard
