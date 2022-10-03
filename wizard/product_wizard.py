@@ -24,21 +24,21 @@ class ProductWizard(models.TransientModel):
 
         ###########################################
         # Search Method
-        srch = self.env['purchase.order'].search([])
-
-        for val in srch.custom_purchase_line:
-            print(val.product_id.name)
+        # srch = self.env['purchase.order'].search([])
+        #
+        # for val in srch.custom_purchase_line:
+        #     print(val.product_id.name)
 
         ############################################
 
     def action_save(self):
         active_id = self._context.get('active_id')
+        print(active_id)
         if active_id:
             purchase_id = self.env['purchase.order'].browse(active_id)
             # print(product_browse_id)
             lst = []
-            for rec in purchase_id.custom_purchase_line:
-                rec.unlink()
+            purchase_id.custom_purchase_line.unlink()
             for val in self.custom_product_line:
                 lst.append((0, 0, {'product_id': val.product_id.id, 'quantity': val.quantity,
                                    'product_price': val.product_price, 'product_total': val.product_total}))

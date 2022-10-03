@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="product_wiz" model="ir.ui.view">
+    <record id="product_wizard_line" model="ir.ui.view">
         <field name="name">product.wiz</field>
         <field name="model">product.wizard</field>
         <field name="arch" type="xml">
-            <notebook>
-                <page string="Product Order Details">
-                    <field name="custom_product_line">
-                        <tree editable="bottom">
-                            <field name="product_id"/>
-                            <field name="quantity"/>
-                            <field name="product_price"/>
-                            <field name="product_total"/>
-                        </tree>
-                    </field>
-                </page>
-            </notebook>
+            <form>
+                <notebook>
+                    <page string="Product Order Details">
+                        <field name="custom_product_line">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="product_price"/>
+                                <field name="product_total"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
             <footer>
                 <button name="action_save" type="object" string="Save" class="oe_highlight "/>
-
                 <button special="cancel" string="Cancel"/>
             </footer>
-
         </field>
     </record>
 
@@ -29,7 +29,9 @@
         <field name="name">Choose Product</field>
         <field name="res_model">product.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="product_wiz"/>
+        <field name="view_id" ref="product_wizard_line"/>
+<!--        <field name="domain">['|', ('res_model', '=', False), ('res_model', '=', 'purchase.order')]</field>-->
+<!--        <field name="context">{'default_res_model': 'purchase.order'}</field>-->
         <field name="target">new</field>
     </record>
 

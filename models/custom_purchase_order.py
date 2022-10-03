@@ -8,6 +8,16 @@ class CustomPurchaseOrderLine(models.Model):
 
     custom_purchase_line = fields.One2many("custom.product.order", "custom_product_id", string="Product Name")
 
+    def send_data(self):
+        if self.name:
+            res = self.env['account.move'].search([('invoice_origin', '=', self.name)])
+            lst = []
+            res.custom_vendor_bill_line.unlink()
+            for rec in self.custom_purchase_line:
+                lst.append((0, 0, {'product_purchase': rec.product_id.id, 'quantity': rec.quantity,
+                                   'price': rec.product_price, 'total': rec.product_total}))
+            res['custom_vendor_bill_line'] = lst
+
 
 class ProductOrderDetails(models.Model):
     _name = "custom.product.order"

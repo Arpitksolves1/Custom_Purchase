@@ -1,6 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_custom_purchase,access_custom_purchase,model_purchase_order,,1,1,1,1
-access_product_wizard,access_product.wizard,model_product_wizard,,1,1,1,1
-access_custom_product_order,access_custom.product.order,model_custom_product_order,,1,1,1,1
+access_puchase_wizard,access_puchase.wizard,model_product_wizard,,1,1,1,1
 access_custom_product_wizard,access_custom.product.wizard,model_custom_product_wizard,,1,1,1,1
+access_custom_product_order,access_custom.product.order,model_custom_product_order,,1,1,1,1
+access_custom_vendor_bill,access_custom_vendor_bill,model_account_move,,1,1,1,1
+access_custom_vendor_bill_line,access_custom_vendor_bill_line,model_vendor_bill_line,,1,1,1,1
 
